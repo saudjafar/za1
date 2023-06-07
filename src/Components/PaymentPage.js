@@ -113,18 +113,17 @@ const PaymentPage = () => {
     setTimeout(() => {
         setProcessing(false);
         setPaymentSuccess(true);
-      }, 30000);
+      }, 3000);
   };
 
   return (
-
+    <div style={{display:'flex', alignItems:'center', justifyContent:'center', padding:'2%'}}>
     <div className="payment-container">
     {processing ? (
       <PaymentProcessing />
     ) : paymentSuccess ? (
       <PaymentSuccess />
     ) : (
-     
       <form onSubmit={handleSubmit}>
         <div className="textfield-container">
           <TextField
@@ -174,6 +173,7 @@ const PaymentPage = () => {
         <button type="submit"><LockSvg style={{padding:'0 0.5rem ', marginBottom:'3px'}}/> <span>Pay Now</span></button>
       </form>
       )}
+    </div>
     </div>
   );
 };
