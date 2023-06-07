@@ -6,15 +6,28 @@ import { ReactComponent as CartSvg } from '../Assets/shopping-icon.svg'
 import { ReactComponent as DotsSvg } from '../Assets/dots.svg';
 import { ReactComponent as FavSvg } from '../Assets/favorite-white.svg';
 import { ReactComponent as StarSvg } from '../Assets/star.svg';
+import { ReactComponent as CartWhiteSvg } from '../Assets/cart-white.svg';
+import {Link} from 'react-router-dom';
 
 import { useState, useEffect} from 'react'
 
 
 const ProductPage = () => {
 
-    const [qtyNumber, setQtyNumber] = useState(5);
-    const [selectedSize, setSelectedSize] = useState('');
+    const unitPrice = 198.00;
+    const [qtyNumber, setQtyNumber] = useState(1);
+    const [selectedSize, setSelectedSize] = useState('M');
+    const [price, setPrice] = useState(qtyNumber*unitPrice);
+    
 
+    useEffect(() => {
+    
+        setPrice(qtyNumber*unitPrice);
+    
+    }, [qtyNumber])
+    
+
+    
     const handleSizeSelection = (size) => {
         setSelectedSize(size);
     };
@@ -42,7 +55,7 @@ const ProductPage = () => {
   return (
     <div className='main'>
         <div className='navigation-bar'>
-                <BackSvg/>
+                <Link to='/'><BackSvg/></Link>
                 <CartSvg/>
         </div>
 
@@ -50,15 +63,17 @@ const ProductPage = () => {
         
             <div className='product-img-container'>
                 <img  src={ProductImg}/>
-            </div>
 
-            {/* <div className='dots-container'>
+                <div className='dots-container'>
                 <DotsSvg/>
+                </div>
+
+                <div className='fav-icon-container'>
+                    <FavSvg/>
+                </div>
             </div>
 
-            <div className='fav-icon-container'>
-                <FavSvg/>
-            </div> */}
+
 
             <div className='details-container'>
                 
@@ -150,8 +165,16 @@ const ProductPage = () => {
                 </div>
 
                 <div className='buy-container'>
-                    <div className='price'></div>
-                    
+                    <div className='price'>
+                        <p>Total Price</p>
+                        <span>${price}</span>
+                    </div>
+                    <Link to='/payment' style={{textDecoration:'none ', color:'inherit'}}>
+                        <button className='buy-btn' >
+                            <CartWhiteSvg className='cart-icon'/>
+                            <span>Buy Now</span>
+                        </button>
+                    </Link>
                 </div>
             </div>
         

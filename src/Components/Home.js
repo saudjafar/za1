@@ -44,7 +44,7 @@ const Home = () => {
           ),
         }}
         />
-        <FilterSvg/>
+        <FilterSvg style={{paddingLeft:'1rem'}}/>
       </div>
 
       <div className='offers-container'>
@@ -99,6 +99,8 @@ const Home = () => {
                 </div>
             </div>
           </Link>
+
+          <Link to='/product' style={{textDecoration:'none', color:'inherit'}}>
           <div className='product'>
             <img src={Product2} alt='sneakers' style={{borderRadius:'14px'}}/>
             <HeartSvg className='fav-icon'/>
@@ -108,6 +110,9 @@ const Home = () => {
               <p className='product-price'>$245.00</p>
             </div>
           </div>
+          </Link>
+
+          <Link to='/product' style={{textDecoration:'none', color:'inherit'}}>
           <div className='product'>
             <img src={Product1} alt='traveler tote'/>
             <HeartSvg className='fav-icon'/>
@@ -117,6 +122,9 @@ const Home = () => {
               <p className='product-price'>$195.00</p>
             </div>
           </div>
+          </Link>
+
+          <Link to='/product' style={{textDecoration:'none', color:'inherit'}}>
           <div className='product'>
             <img src={Product2} alt='sneakers' style={{borderRadius:'14px'}}/>
             <HeartSvg className='fav-icon'/>
@@ -126,6 +134,8 @@ const Home = () => {
               <p className='product-price'>$245.00</p>
             </div>
           </div>
+          </Link>
+
         </div>
 
       </div>
